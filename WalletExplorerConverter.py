@@ -35,10 +35,6 @@ conn = boto.dynamodb2.connect_to_region('eu-west-1')
 # boto.dynamodb2.table module
 table = Table('WalletExplorer', connection=conn)
 
-item = table.lookup("BetVIP.com", "000002cedb1e3337733745f23e4c5ccdc31867aaa7da4895fd047782d8808bab")
-
-print "Date: %f USD/BTC: %f" % (item['Transaction Date'], item['balance']) 
-
 dataset = table.scan()
 
 count = 0
@@ -60,11 +56,19 @@ with open("usd_balance", 'w') as f:
 # write list to file
 
 # Functions needed
-# database-query
+# READ:
+# database-scan
 # date-match
 # convert
-# write
 
+# WRITE
+# 
+
+
+# table lookup test
+# item = table.lookup("BetVIP.com", "000002cedb1e3337733745f23e4c5ccdc31867aaa7da4895fd047782d8808bab")
+
+# print "Date: %f USD/BTC: %f" % (item['Transaction Date'], item['balance']) 
 
 
 
